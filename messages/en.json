@@ -1,0 +1,138 @@
+{
+  "nav": {
+    "home": "Home",
+    "destinations": "Destinations",
+    "planner": "Route Planner",
+    "booking": "Book Now",
+    "dashboard": "Dashboard",
+    "login": "Sign In",
+    "register": "Get Started",
+    "logout": "Sign Out"
+  },
+  "home": {
+    "hero": {
+      "badge": "Trusted by 50,000+ travelers worldwide",
+      "title": "Explore the World,",
+      "titleHighlight": "Your Way",
+      "subtitle": "Plan routes, discover destinations, and book your perfect trip — all in one place.",
+      "searchPlaceholder": "Where do you want to go?",
+      "cta": "Start Planning",
+      "ctaSecondary": "Explore Destinations"
+    },
+    "search": {
+      "title": "Plan Your Route",
+      "from": "From",
+      "to": "To",
+      "date": "Departure Date",
+      "transport": "Transport",
+      "travelers": "Travelers",
+      "search": "Search Routes",
+      "originCountry": "Origin Country",
+      "originCity": "Origin City",
+      "destCountry": "Destination Country",
+      "destCity": "Destination City"
+    },
+    "popular": {
+      "title": "Popular Destinations",
+      "subtitle": "Handpicked places loved by travelers around the world",
+      "viewAll": "View All"
+    },
+    "trending": {
+      "title": "Trending Countries",
+      "subtitle": "The hottest travel spots right now"
+    },
+    "why": {
+      "title": "Why Choose Travix?",
+      "subtitle": "Everything you need for the perfect trip",
+      "items": {
+        "routes": {
+          "title": "Smart Route Planning",
+          "desc": "AI-powered routes with real-time traffic, alternatives, and cost estimates."
+        },
+        "global": {
+          "title": "Global Coverage",
+          "desc": "Thousands of destinations across 190+ countries, curated just for you."
+        },
+        "booking": {
+          "title": "Easy Booking",
+          "desc": "Book flights, hotels, and experiences in a few taps."
+        },
+        "support": {
+          "title": "24/7 Support",
+          "desc": "Our team is always here to help you whenever you need it."
+        }
+      }
+    },
+    "testimonials": {
+      "title": "What Travelers Say",
+      "subtitle": "Real stories from real explorers"
+    }
+  },
+  "destinations": {
+    "title": "Explore Destinations",
+    "subtitle": "Discover breathtaking places from around the world",
+    "filters": {
+      "all": "All",
+      "country": "Country",
+      "category": "Category",
+      "rating": "Rating",
+      "budget": "Budget"
+    },
+    "card": {
+      "from": "From",
+      "viewDetail": "View Detail",
+      "reviews": "reviews"
+    }
+  },
+  "planner": {
+    "title": "Route Planner",
+    "subtitle": "Find the best route between any two places",
+    "result": {
+      "distance": "Distance",
+      "duration": "Duration",
+      "cost": "Est. Cost",
+      "fuel": "Est. Fuel",
+      "steps": "Step-by-step",
+      "alternatives": "Alternatives"
+    }
+  },
+  "booking": {
+    "title": "Book Your Trip",
+    "travelers": "Travelers",
+    "date": "Travel Date",
+    "transport": "Transport Mode",
+    "notes": "Notes",
+    "payment": "Payment Method",
+    "confirm": "Confirm Booking",
+    "success": "Booking Confirmed!"
+  },
+  "dashboard": {
+    "title": "My Dashboard",
+    "bookings": "My Bookings",
+    "saved": "Saved Places",
+    "upcoming": "Upcoming Trips",
+    "profile": "My Profile"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Try Again",
+    "back": "Back",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "noResults": "No results found",
+    "seeAll": "See All"
+  },
+  "transport": {
+    "FLIGHT": "Flight",
+    "TRAIN": "Train",
+    "CAR": "Car",
+    "MOTORCYCLE": "Motorcycle"
+  }
+}

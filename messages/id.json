@@ -1,0 +1,138 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "destinations": "Destinasi",
+    "planner": "Perencana Rute",
+    "booking": "Pesan Sekarang",
+    "dashboard": "Dasbor",
+    "login": "Masuk",
+    "register": "Mulai",
+    "logout": "Keluar"
+  },
+  "home": {
+    "hero": {
+      "badge": "Dipercaya oleh 50.000+ wisatawan di seluruh dunia",
+      "title": "Jelajahi Dunia,",
+      "titleHighlight": "Caramu",
+      "subtitle": "Rencanakan rute, temukan destinasi, dan pesan perjalanan sempurnamu — semua dalam satu tempat.",
+      "searchPlaceholder": "Ke mana kamu ingin pergi?",
+      "cta": "Mulai Merencanakan",
+      "ctaSecondary": "Jelajahi Destinasi"
+    },
+    "search": {
+      "title": "Rencanakan Rutem",
+      "from": "Dari",
+      "to": "Ke",
+      "date": "Tanggal Berangkat",
+      "transport": "Transportasi",
+      "travelers": "Wisatawan",
+      "search": "Cari Rute",
+      "originCountry": "Negara Asal",
+      "originCity": "Kota Asal",
+      "destCountry": "Negara Tujuan",
+      "destCity": "Kota Tujuan"
+    },
+    "popular": {
+      "title": "Destinasi Populer",
+      "subtitle": "Tempat-tempat terpilih yang disukai wisatawan di seluruh dunia",
+      "viewAll": "Lihat Semua"
+    },
+    "trending": {
+      "title": "Negara Trending",
+      "subtitle": "Destinasi wisata terpanas saat ini"
+    },
+    "why": {
+      "title": "Mengapa Memilih Travix?",
+      "subtitle": "Semua yang kamu butuhkan untuk perjalanan sempurna",
+      "items": {
+        "routes": {
+          "title": "Perencanaan Rute Cerdas",
+          "desc": "Rute bertenaga AI dengan lalu lintas real-time, alternatif, dan estimasi biaya."
+        },
+        "global": {
+          "title": "Jangkauan Global",
+          "desc": "Ribuan destinasi di lebih dari 190 negara, dikurasi khusus untukmu."
+        },
+        "booking": {
+          "title": "Pemesanan Mudah",
+          "desc": "Pesan penerbangan, hotel, dan pengalaman dalam beberapa ketukan."
+        },
+        "support": {
+          "title": "Dukungan 24/7",
+          "desc": "Tim kami selalu siap membantu kapan pun kamu membutuhkan."
+        }
+      }
+    },
+    "testimonials": {
+      "title": "Kata Para Wisatawan",
+      "subtitle": "Cerita nyata dari para penjelajah sejati"
+    }
+  },
+  "destinations": {
+    "title": "Jelajahi Destinasi",
+    "subtitle": "Temukan tempat-tempat menakjubkan dari seluruh dunia",
+    "filters": {
+      "all": "Semua",
+      "country": "Negara",
+      "category": "Kategori",
+      "rating": "Rating",
+      "budget": "Anggaran"
+    },
+    "card": {
+      "from": "Mulai dari",
+      "viewDetail": "Lihat Detail",
+      "reviews": "ulasan"
+    }
+  },
+  "planner": {
+    "title": "Perencana Rute",
+    "subtitle": "Temukan rute terbaik antara dua tempat mana saja",
+    "result": {
+      "distance": "Jarak",
+      "duration": "Durasi",
+      "cost": "Est. Biaya",
+      "fuel": "Est. Bahan Bakar",
+      "steps": "Langkah demi langkah",
+      "alternatives": "Alternatif"
+    }
+  },
+  "booking": {
+    "title": "Pesan Perjalananmu",
+    "travelers": "Wisatawan",
+    "date": "Tanggal Perjalanan",
+    "transport": "Moda Transportasi",
+    "notes": "Catatan",
+    "payment": "Metode Pembayaran",
+    "confirm": "Konfirmasi Pemesanan",
+    "success": "Pemesanan Dikonfirmasi!"
+  },
+  "dashboard": {
+    "title": "Dasbor Saya",
+    "bookings": "Pemesanan Saya",
+    "saved": "Tempat Tersimpan",
+    "upcoming": "Perjalanan Mendatang",
+    "profile": "Profil Saya"
+  },
+  "common": {
+    "loading": "Memuat...",
+    "error": "Terjadi kesalahan",
+    "retry": "Coba Lagi",
+    "back": "Kembali",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "delete": "Hapus",
+    "edit": "Edit",
+    "view": "Lihat",
+    "search": "Cari",
+    "filter": "Filter",
+    "sort": "Urutkan",
+    "noResults": "Tidak ada hasil",
+    "seeAll": "Lihat Semua"
+  },
+  "transport": {
+    "FLIGHT": "Penerbangan",
+    "TRAIN": "Kereta",
+    "CAR": "Mobil",
+    "MOTORCYCLE": "Motor"
+  }
+}
