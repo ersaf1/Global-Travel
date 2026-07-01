@@ -1,35 +1,45 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 :root {
-  /* Travix Color Palette */
-  --bg: #F6F7F9;
+  /* Global-Travel Color Palette */
+  --primary: #15C7E8;
+  --secondary: #2E9BFF;
+  --accent: #FFD84D;
+  --bg: #FFFFFF;
+  --section-bg: #F8FAFC;
+  --text: #0F172A;
+  --text-secondary: #64748B;
+  --border: #E2E8F0;
   --card: #FFFFFF;
-  --text-primary: #111827;
-  --text-secondary: #6B7280;
-  --border: #E5E7EB;
-  --btn-primary: #111827;
-  --travel-blue: #60A5FA;
-  --mint-green: #6EE7B7;
-  --warm-orange: #FDBA74;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #15C7E8, #2E9BFF);
+  --gradient-hero: linear-gradient(135deg, rgba(15,23,42,0.55) 0%, rgba(15,23,42,0.2) 100%);
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.07), 0 2px 6px rgba(0,0,0,0.04);
-  --shadow-lg: 0 12px 40px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.05);
-  --shadow-hover: 0 20px 60px rgba(0,0,0,0.12), 0 6px 20px rgba(0,0,0,0.06);
+  --shadow-sm: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.08);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.08);
+  --shadow-hover: 0 24px 80px rgba(0,0,0,0.12);
+
+  /* Border radius */
+  --radius: 24px;
+  --radius-sm: 16px;
+  --radius-xs: 12px;
 }
 
 @theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
   --color-bg: var(--bg);
-  --color-card: var(--card);
-  --color-primary: var(--text-primary);
-  --color-secondary: var(--text-secondary);
+  --color-section-bg: var(--section-bg);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-secondary);
   --color-border: var(--border);
-  --color-travel-blue: var(--travel-blue);
-  --color-mint: var(--mint-green);
-  --color-orange: var(--warm-orange);
-  --font-sans: "Inter", system-ui, sans-serif;
+  --color-card: var(--card);
+  --font-sans: "Poppins", system-ui, sans-serif;
   --font-heading: "Poppins", sans-serif;
 }
 
@@ -45,15 +55,17 @@ html {
 
 body {
   background-color: var(--bg);
-  color: var(--text-primary);
+  color: var(--text);
   font-family: var(--font-sans);
   line-height: 1.6;
+  font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
+  color: var(--text);
 }
 
 /* Scrollbar */
@@ -65,22 +77,54 @@ h1, h2, h3, h4, h5, h6 {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D1D5DB;
+  background: #CBD5E1;
   border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #9CA3AF;
+  background: #94A3B8;
 }
 
 /* Focus ring */
 :focus-visible {
-  outline: 2px solid var(--travel-blue);
+  outline: 2px solid var(--primary);
   outline-offset: 2px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 /* Selection */
 ::selection {
-  background: #DBEAFE;
-  color: var(--text-primary);
+  background: rgba(21,199,232,0.15);
+  color: var(--text);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.6);
+}
+
+.glass-dark {
+  background: rgba(15,23,42,0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Hide scrollbar for carousels */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

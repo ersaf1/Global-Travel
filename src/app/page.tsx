@@ -1,18 +1,20 @@
 import { MainLayout } from "@/components/layout/MainLayout";
 import { HeroSection } from "@/components/home/HeroSection";
 import { PopularDestinations } from "@/components/home/PopularDestinations";
-import { TrendingCountries } from "@/components/home/TrendingCountries";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
-import { Testimonials } from "@/components/home/Testimonials";
+import { ExploreMore } from "@/components/home/ExploreMore";
+import { DestinationCarousel } from "@/components/home/DestinationCarousel";
+import { VideoBanner } from "@/components/home/VideoBanner";
 
 export default function HomePage() {
   return (
     <MainLayout>
       <HeroSection />
-      <WhyChooseUs />
       <PopularDestinations />
-      <TrendingCountries />
-      <Testimonials />
+      <WhyChooseUs />
+      <ExploreMore />
+      <DestinationCarousel />
+      <VideoBanner />
     </MainLayout>
   );
 }

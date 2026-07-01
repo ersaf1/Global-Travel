@@ -9,7 +9,7 @@ export function MainLayout({ children }: MainLayoutProps) {
   return (
     <>
       <Navbar />
-      <main id="main-content" className="flex-1 pt-16" tabIndex={-1}>
+      <main id="main-content" className="flex-1" tabIndex={-1}>
         {children}
       </main>
       <Footer />
