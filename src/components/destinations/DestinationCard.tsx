@@ -60,7 +60,7 @@ export function DestinationCard({ destination, index = 0, className }: Destinati
       {/* Content */}
       <div className="p-4">
         <div className="flex items-start justify-between gap-2 mb-1">
-          <h3 className="font-[family-name:var(--font-poppins)] font-semibold text-[#111827] text-base leading-tight">
+          <h3 className="font-[family-name:var(--font-sora)] font-semibold text-[#111827] text-base leading-tight">
             {destination.name}
           </h3>
         </div>

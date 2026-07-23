@@ -1,110 +1,72 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 
 const testimonials = [
-  {
-    name: "Sarah Chen",
-    country: "Singapore",
-    avatar: "SC",
-    rating: 5,
-    text: "Travix made planning our honeymoon so effortless. The route planner suggested incredible hidden gems we never would have found on our own.",
-    trip: "Singapore → Bali → Lombok",
-  },
-  {
-    name: "Marco Rossi",
-    country: "Italy",
-    avatar: "MR",
-    rating: 5,
-    text: "I travel for work constantly and Travix has become indispensable. The multi-transport route planner saves me hours every week.",
-    trip: "Milan → Paris → Amsterdam",
-  },
-  {
-    name: "Amara Osei",
-    country: "Ghana",
-    avatar: "AO",
-    rating: 5,
-    text: "As a solo traveler, safety and reliability matter most. Travix delivers on both. The destination guides are incredibly detailed.",
-    trip: "Accra → Cape Town → Nairobi",
-  },
-  {
-    name: "Priya Sharma",
-    country: "India",
-    avatar: "PS",
-    rating: 5,
-    text: "The flight search + hotel booking in one place is a game changer. Found deals I couldn't find anywhere else.",
-    trip: "Mumbai → Tokyo → Osaka",
-  },
+  { name: "Sarah Chen",   country: "Singapore", trip: "Bali & Lombok",        avatar: "SC", text: "NOVA made planning our honeymoon so effortless. The route planner suggested incredible hidden gems we never would have found on our own." },
+  { name: "Marco Rossi",  country: "Italy",      trip: "Paris → Amsterdam",    avatar: "MR", text: "I travel for work constantly and NOVA has become indispensable. The multi-transport route planner saves me hours every week." },
+  { name: "Amara Osei",   country: "Ghana",      trip: "Cape Town Safari",     avatar: "AO", text: "As a solo traveler, safety and reliability matter most. NOVA delivers on both. The destination guides are incredibly detailed." },
+  { name: "Priya Sharma", country: "India",      trip: "Tokyo & Osaka",        avatar: "PS", text: "The flight search and hotel booking in one place is a game changer. Found deals I couldn't find anywhere else." },
 ];
 
-function AvatarFallback({ initials, colorIndex }: { initials: string; colorIndex: number }) {
-  const colors = [
-    "bg-[#DBEAFE] text-[#1D4ED8]",
-    "bg-[#D1FAE5] text-[#065F46]",
-    "bg-[#FEF3C7] text-[#92400E]",
-    "bg-[#F3E8FF] text-[#6B21A8]",
-  ];
-  return (
-    <div
-      className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold ${colors[colorIndex % colors.length]}`}
-      aria-hidden="true"
-    >
-      {initials}
-    </div>
-  );
-}
+const avatarColors = [
+  { bg: "#EBF5FD", text: "#0E6CBD" },
+  { bg: "#E8F5EE", text: "#1A7A4A" },
+  { bg: "#FEF3E2", text: "#B85C00" },
+  { bg: "#F3E8FF", text: "#7C3AED" },
+];
 
 export function Testimonials() {
   return (
-    <section className="py-20 bg-[#F6F7F9]" aria-labelledby="testimonials-heading">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="text-center max-w-2xl mx-auto mb-14"
-        >
-          <p className="text-sm font-medium text-[#60A5FA] mb-2 uppercase tracking-wide">
-            Testimonials
-          </p>
-          <h2
-            id="testimonials-heading"
-            className="font-[family-name:var(--font-poppins)] text-3xl sm:text-4xl font-bold text-[#111827] mb-4"
-          >
-            What Travelers Say
+    <section style={{ background: "var(--bg-dark)", padding: "var(--sec) 0" }} aria-labelledby="test-heading">
+      <div style={{ maxWidth: "var(--wrap)", margin: "0 auto", padding: "0 1.5rem" }}>
+
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
+          <h2 id="test-heading" className="font-bold text-white mb-4"
+            style={{ fontFamily: "var(--font-sora)", fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)", letterSpacing: "-0.03em", lineHeight: 1.05 }}>
+            Real journeys,<br />real stories.
           </h2>
-          <p className="text-[#6B7280] text-lg">Real stories from real explorers</p>
+          <p style={{ color: "rgba(255,255,255,0.50)", fontFamily: "var(--font-nunito)", fontSize: "16px", maxWidth: "40ch" }}>
+            Over 50,000 travelers trust NOVA to plan their perfect trip.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {testimonials.map(({ name, country, avatar, rating, text, trip }, i) => (
-            <motion.div
-              key={name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: i * 0.07 }}
-              className="bg-white rounded-2xl border border-[#E5E7EB] p-5 shadow-[0_2px_12px_rgba(0,0,0,0.05)] flex flex-col gap-4"
-            >
-              <Quote size={20} className="text-[#E5E7EB]" aria-hidden="true" />
+        {/* 2x2 grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {testimonials.map(({ name, country, trip, avatar, text }, i) => (
+            <motion.div key={name}
+              initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="flex flex-col gap-5"
+              style={{
+                background: "rgba(255,255,255,0.05)",
+                border: "1px solid rgba(255,255,255,0.10)",
+                borderRadius: "var(--r-lg)",
+                padding: "2rem",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
+              }}>
+              {/* Quote icon */}
+              <Quote size={20} style={{ color: "var(--nova)", opacity: 0.7 }} aria-hidden="true" />
 
-              <p className="text-sm text-[#374151] leading-relaxed flex-1">{text}</p>
+              {/* Text */}
+              <p style={{ color: "rgba(255,255,255,0.80)", fontFamily: "var(--font-nunito)", fontSize: "15px", lineHeight: 1.75, flex: 1 }}>
+                &ldquo;{text}&rdquo;
+              </p>
 
-              <div className="text-xs text-[#60A5FA] font-medium">{trip}</div>
-
-              <div className="flex items-center gap-0.5" aria-label={`Rating: ${rating} out of 5`}>
-                {Array.from({ length: rating }).map((_, j) => (
-                  <Star key={j} size={12} className="text-[#FBBF24] fill-[#FBBF24]" aria-hidden="true" />
-                ))}
-              </div>
-
-              <div className="flex items-center gap-3 pt-2 border-t border-[#F3F4F6]">
-                <AvatarFallback initials={avatar} colorIndex={i} />
+              {/* Author */}
+              <div className="flex items-center gap-3 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+                <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold shrink-0"
+                  style={{ background: avatarColors[i].bg, color: avatarColors[i].text, fontFamily: "var(--font-sora)" }}>
+                  {avatar}
+                </div>
                 <div>
-                  <p className="text-sm font-semibold text-[#111827]">{name}</p>
-                  <p className="text-xs text-[#9CA3AF]">{country}</p>
+                  <p className="font-semibold text-white text-sm" style={{ fontFamily: "var(--font-sora)" }}>{name}</p>
+                  <p className="text-xs" style={{ color: "rgba(255,255,255,0.40)", fontFamily: "var(--font-nunito)" }}>
+                    {country} · {trip}
+                  </p>
                 </div>
               </div>
             </motion.div>

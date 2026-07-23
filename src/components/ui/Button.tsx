@@ -18,21 +18,21 @@ interface ButtonProps extends Omit<HTMLMotionProps<"button">, "ref"> {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-[#111827] text-white hover:bg-[#1F2937] shadow-sm hover:shadow-md",
+    "bg-[#0F2540] text-white hover:bg-[#1B3A5C] border border-[#0F2540] hover:border-[#1B3A5C]",
   secondary:
-    "bg-[#F3F4F6] text-[#111827] hover:bg-[#E5E7EB]",
+    "bg-white text-[#0F2540] border border-[#E5E5E5] hover:border-[#0F2540]",
   outline:
-    "border border-[#E5E7EB] bg-white text-[#111827] hover:bg-[#F9FAFB] hover:border-[#D1D5DB]",
+    "bg-transparent text-[#0F2540] border border-[#0F2540] hover:bg-[#0F2540] hover:text-white",
   ghost:
-    "text-[#6B7280] hover:text-[#111827] hover:bg-[#F3F4F6]",
+    "bg-transparent text-[#666666] hover:text-[#111111] hover:bg-[#F7F8FA] border border-transparent",
   danger:
-    "bg-red-500 text-white hover:bg-red-600 shadow-sm",
+    "bg-red-600 text-white hover:bg-red-700 border border-red-600",
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm: "h-8 px-3 text-sm rounded-lg gap-1.5",
-  md: "h-10 px-4 text-sm rounded-xl gap-2",
-  lg: "h-12 px-6 text-base rounded-xl gap-2",
+  sm: "h-8 px-4 text-xs tracking-wide gap-1.5",
+  md: "h-10 px-5 text-sm tracking-wide gap-2",
+  lg: "h-12 px-7 text-sm tracking-[0.06em] gap-2.5",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -56,13 +56,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <motion.button
         ref={ref}
-        whileTap={{ scale: isDisabled ? 1 : 0.97 }}
-        whileHover={{ scale: isDisabled ? 1 : 1.01 }}
+        whileTap={{ scale: isDisabled ? 1 : 0.98 }}
+        whileHover={{ scale: isDisabled ? 1 : 1.005 }}
         transition={{ duration: 0.15 }}
         disabled={isDisabled}
         className={cn(
-          "inline-flex items-center justify-center font-medium transition-all duration-200 cursor-pointer select-none",
-          "disabled:opacity-50 disabled:cursor-not-allowed",
+          "inline-flex items-center justify-center font-semibold uppercase transition-all duration-200 cursor-pointer select-none",
+          "disabled:opacity-40 disabled:cursor-not-allowed",
           variants[variant],
           sizes[size],
           fullWidth && "w-full",
@@ -79,31 +79,16 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
               viewBox="0 0 24 24"
               aria-hidden="true"
             >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              />
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-              />
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
             </svg>
-            Loading...
+            Loading…
           </span>
         ) : (
           <>
-            {icon && iconPosition === "left" && (
-              <span className="shrink-0">{icon}</span>
-            )}
+            {icon && iconPosition === "left" && <span className="shrink-0">{icon}</span>}
             {children}
-            {icon && iconPosition === "right" && (
-              <span className="shrink-0">{icon}</span>
-            )}
+            {icon && iconPosition === "right" && <span className="shrink-0">{icon}</span>}
           </>
         )}
       </motion.button>

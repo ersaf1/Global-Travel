@@ -1,200 +1,108 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { Globe2, Send, MessageCircle, Share2, Rss, Mail, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, MapPin, Mail } from "lucide-react";
+import { useState } from "react";
 
-const footerLinks = {
-  About: [
-    { label: "Our Story", href: "/about" },
-    { label: "How It Works", href: "/how-it-works" },
-    { label: "Blog", href: "/blog" },
-    { label: "Careers", href: "/careers" },
+const cols = {
+  Explore: [
+    { label: "Destinations", href: "/explore" },
+    { label: "Flights",      href: "/flights"  },
+    { label: "Hotels",       href: "/hotels"   },
+    { label: "Activities",   href: "/activities"},
   ],
   Company: [
-    { label: "Press", href: "/press" },
-    { label: "Partners", href: "/partners" },
-    { label: "Investors", href: "/investors" },
-    { label: "Affiliate", href: "/affiliate" },
+    { label: "About NOVA",   href: "/about"         },
+    { label: "How It Works", href: "/how-it-works"  },
+    { label: "Blog",         href: "/blog"          },
+    { label: "Careers",      href: "/careers"       },
   ],
   Support: [
-    { label: "Help Center", href: "/help" },
-    { label: "Contact Us", href: "/contact" },
+    { label: "Help Center",    href: "/help"    },
+    { label: "Contact Us",     href: "/contact" },
     { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms of Service", href: "/terms" },
+    { label: "Terms",          href: "/terms"   },
   ],
 };
 
-const socials = [
-  { icon: Share2, href: "#", label: "Twitter" },
-  { icon: MessageCircle, href: "#", label: "Instagram" },
-  { icon: Send, href: "#", label: "Facebook" },
-  { icon: Rss, href: "#", label: "YouTube" },
-];
-
 export function Footer() {
   const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setEmail("");
-    }
-  };
+  const [done, setDone] = useState(false);
 
   return (
-    <footer className="bg-[#0F172A] text-white" role="contentinfo">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+    <footer style={{ background: "var(--bg-dark)" }} role="contentinfo">
+      {/* Top accent line */}
+      <div style={{ height: "2px", background: "linear-gradient(90deg, var(--nova-drench), var(--nova), #7AC8FF, var(--nova), var(--nova-drench))" }} />
 
-          {/* Brand col */}
-          <div className="lg:col-span-2 space-y-6">
-            <Link href="/" className="flex items-center gap-2.5 group w-fit" aria-label="TravixGo home">
-              <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, #15C7E8, #2E9BFF)" }}
-              >
-                <Globe2 size={18} className="text-white" aria-hidden="true" />
-              </div>
-              <span className="font-bold text-xl tracking-tight text-white" style={{ fontFamily: "Poppins, sans-serif" }}>
-                TravixGo
-              </span>
+      <div style={{ maxWidth: "var(--wrap)", margin: "0 auto", padding: "5rem 1.5rem 2.5rem" }}>
+
+        {/* Top row */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+
+          {/* Brand + newsletter */}
+          <div>
+            <Link href="/" className="flex items-center gap-3 mb-6 w-fit group" aria-label="NOVA home">
+              <Image src="/nova_official_logo.png" alt="NOVA" width={42} height={42}
+                className="object-contain opacity-90 group-hover:opacity-100 transition-opacity" />
+              <span className="font-bold text-white tracking-widest text-lg uppercase"
+                style={{ fontFamily: "var(--font-sora)" }}>NOVA</span>
             </Link>
-
-            <p className="text-[#94A3B8] text-sm leading-relaxed max-w-xs">
-              Discover breathtaking destinations, plan seamlessly, and book your perfect adventure — all in one premium platform. Trusted by 50K+ travelers.
+            <p className="text-base mb-8 max-w-xs" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "var(--font-nunito)", lineHeight: 1.7 }}>
+              Discover breathtaking destinations and book your perfect adventure — all in one place.
             </p>
 
-            {/* Social icons */}
-            <div className="flex items-center gap-2">
-              {socials.map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5"
-                  style={{
-                    background: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.background = "linear-gradient(135deg, #15C7E8, #2E9BFF)";
-                    (e.currentTarget as HTMLAnchorElement).style.border = "1px solid transparent";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.06)";
-                    (e.currentTarget as HTMLAnchorElement).style.border = "1px solid rgba(255,255,255,0.08)";
-                  }}
-                >
-                  <Icon size={15} className="text-[#94A3B8] group-hover:text-white" />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Link columns */}
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h3
-                className="text-sm font-semibold text-white mb-5 uppercase tracking-wider"
-                style={{ fontFamily: "Poppins, sans-serif" }}
-              >
-                {title}
-              </h3>
-              <ul className="space-y-3" role="list">
-                {links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-[#94A3B8] hover:text-white transition-colors duration-200"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          {/* Newsletter col */}
-          <div className="lg:col-span-1 md:col-span-2">
-            <h3
-              className="text-sm font-semibold text-white mb-2 uppercase tracking-wider"
-              style={{ fontFamily: "Poppins, sans-serif" }}
-            >
-              Newsletter
-            </h3>
-            <p className="text-sm text-[#94A3B8] mb-5 leading-relaxed">
-              Get travel inspiration and exclusive deals delivered to your inbox.
+            {/* Newsletter */}
+            <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: "var(--nova)", fontFamily: "var(--font-sora)" }}>
+              Stay Inspired
             </p>
-
-            {subscribed ? (
-              <div
-                className="flex items-center gap-2 px-4 py-3 rounded-2xl text-sm"
-                style={{
-                  background: "rgba(21,199,232,0.12)",
-                  border: "1px solid rgba(21,199,232,0.25)",
-                  color: "#15C7E8",
-                }}
-              >
-                <Mail size={15} />
-                Thanks! You&apos;re subscribed.
-              </div>
+            {done ? (
+              <p className="text-sm" style={{ color: "rgba(255,255,255,0.50)" }}>You&apos;re subscribed. ✓</p>
             ) : (
-              <form onSubmit={handleSubscribe} className="space-y-3">
-                <div className="relative">
-                  <Mail size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#64748B]" aria-hidden="true" />
-                  <input
-                    type="email"
-                    placeholder="your@email.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="w-full h-11 pl-10 pr-4 rounded-xl text-sm text-white placeholder-[#64748B] focus:outline-none transition-all"
-                    style={{
-                      background: "rgba(255,255,255,0.06)",
-                      border: "1px solid rgba(255,255,255,0.1)",
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.border = "1px solid #15C7E8";
-                      e.target.style.boxShadow = "0 0 0 3px rgba(21,199,232,0.12)";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.border = "1px solid rgba(255,255,255,0.1)";
-                      e.target.style.boxShadow = "none";
-                    }}
-                    aria-label="Email address for newsletter"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full h-11 rounded-xl text-sm font-semibold text-white flex items-center justify-center gap-2 hover:-translate-y-0.5 transition-all duration-200"
-                  style={{
-                    background: "linear-gradient(135deg, #15C7E8, #2E9BFF)",
-                    boxShadow: "0 4px 16px rgba(21,199,232,0.35)",
-                  }}
-                >
-                  Subscribe
-                  <ArrowRight size={15} />
+              <form onSubmit={e => { e.preventDefault(); if (email.trim()) setDone(true); }} className="flex gap-0">
+                <input type="email" value={email} onChange={e => setEmail(e.target.value)}
+                  placeholder="your@email.com" required aria-label="Email for newsletter"
+                  className="flex-1 h-12 px-4 text-sm focus:outline-none"
+                  style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", borderRight: "none", borderRadius: "var(--r-sm) 0 0 var(--r-sm)", color: "white", fontFamily: "var(--font-nunito)" }} />
+                <button type="submit" className="h-12 px-5 flex items-center gap-2 text-white text-xs font-bold tracking-wider"
+                  style={{ background: "var(--nova)", borderRadius: "0 var(--r-sm) var(--r-sm) 0", fontFamily: "var(--font-sora)" }}>
+                  Subscribe <ArrowRight size={13} />
                 </button>
               </form>
             )}
           </div>
+
+          {/* Links grid */}
+          <div className="grid grid-cols-3 gap-8">
+            {Object.entries(cols).map(([cat, links]) => (
+              <div key={cat}>
+                <p className="text-xs font-bold tracking-widest uppercase mb-5" style={{ color: "rgba(255,255,255,0.30)", fontFamily: "var(--font-sora)" }}>
+                  {cat}
+                </p>
+                <ul className="space-y-3">
+                  {links.map(({ label, href }) => (
+                    <li key={label}>
+                      <Link href={href} className="text-sm hover:text-white transition-colors"
+                        style={{ color: "rgba(255,255,255,0.50)", fontFamily: "var(--font-nunito)" }}>
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Bottom bar */}
-        <div
-          className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
-        >
-          <p className="text-xs text-[#475569]">
-            &copy; {new Date().getFullYear()} TravixGo. All rights reserved.
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+          <p className="text-xs" style={{ color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-nunito)" }}>
+            &copy; {new Date().getFullYear()} NOVA Travel. All rights reserved.
           </p>
-          <div className="flex items-center gap-1 text-xs text-[#475569]">
+          <div className="flex items-center gap-1.5 text-xs" style={{ color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-nunito)" }}>
             <Mail size={12} aria-hidden="true" />
-            <span>hello@travixgo.com</span>
+            <span>hello@nova.travel</span>
           </div>
         </div>
       </div>

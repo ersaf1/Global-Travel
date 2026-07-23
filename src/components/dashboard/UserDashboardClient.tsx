@@ -21,9 +21,9 @@ const mockBookings = [
 ];
 
 const mockSaved = [
-  { id: "s1", name: "Santorini", country: "Greece", image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=300", rating: 4.7 },
-  { id: "s2", name: "Maldives", country: "Maldives", image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=300", rating: 4.8 },
-  { id: "s3", name: "Machu Picchu", country: "Peru", image: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=300", rating: 4.9 },
+  { id: "s1", name: "Santorini", country: "Greece", image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=3840&q=95", rating: 4.7 },
+  { id: "s2", name: "Maldives", country: "Maldives", image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=3840&q=95", rating: 4.8 },
+  { id: "s3", name: "Machu Picchu", country: "Peru", image: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=3840&q=95", rating: 4.9 },
 ];
 
 const statusConfig: Record<string, { label: string; variant: "green" | "orange" | "gray" | "blue" }> = {
@@ -93,7 +93,7 @@ export function UserDashboardClient() {
             {tab === "overview" && (
               <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="space-y-6">
                 <div>
-                  <h1 className="font-[family-name:var(--font-poppins)] text-2xl font-bold text-[#111827]">
+                  <h1 className="font-[family-name:var(--font-sora)] text-2xl font-bold text-[#111827]">
                     Welcome back, John 👋
                   </h1>
                   <p className="text-[#6B7280] mt-1">Here's what's happening with your trips.</p>
@@ -117,7 +117,7 @@ export function UserDashboardClient() {
 
                 {/* Upcoming */}
                 <Card padding="lg">
-                  <h2 className="font-[family-name:var(--font-poppins)] font-semibold text-[#111827] mb-4 flex items-center gap-2">
+                  <h2 className="font-[family-name:var(--font-sora)] font-semibold text-[#111827] mb-4 flex items-center gap-2">
                     <Clock size={18} aria-hidden="true" /> Upcoming Trips
                   </h2>
                   <div className="space-y-3">
@@ -143,7 +143,7 @@ export function UserDashboardClient() {
             {/* Bookings */}
             {tab === "bookings" && (
               <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
-                <h1 className="font-[family-name:var(--font-poppins)] text-2xl font-bold text-[#111827] mb-6">My Bookings</h1>
+                <h1 className="font-[family-name:var(--font-sora)] text-2xl font-bold text-[#111827] mb-6">My Bookings</h1>
                 <div className="space-y-4">
                   {mockBookings.map((b) => (
                     <Card key={b.id} padding="md" className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -169,7 +169,7 @@ export function UserDashboardClient() {
             {/* Saved */}
             {tab === "saved" && (
               <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
-                <h1 className="font-[family-name:var(--font-poppins)] text-2xl font-bold text-[#111827] mb-6">Saved Places</h1>
+                <h1 className="font-[family-name:var(--font-sora)] text-2xl font-bold text-[#111827] mb-6">Saved Places</h1>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {mockSaved.map((s) => (
                     <Card key={s.id} padding="none" className="overflow-hidden" hover>
@@ -195,7 +195,7 @@ export function UserDashboardClient() {
             {/* Profile */}
             {tab === "profile" && (
               <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
-                <h1 className="font-[family-name:var(--font-poppins)] text-2xl font-bold text-[#111827] mb-6">My Profile</h1>
+                <h1 className="font-[family-name:var(--font-sora)] text-2xl font-bold text-[#111827] mb-6">My Profile</h1>
                 <Card padding="lg" className="space-y-4 max-w-lg">
                   <div className="grid gap-4">
                     {[

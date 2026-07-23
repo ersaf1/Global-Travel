@@ -14,10 +14,10 @@ export default function NotFound() {
         transition={{ duration: 0.4 }}
         className="text-center max-w-md"
       >
-        <div className="font-[family-name:var(--font-poppins)] text-8xl font-bold text-[#E5E7EB] mb-4" aria-hidden="true">
+        <div className="font-[family-name:var(--font-sora)] text-8xl font-bold text-[#E5E7EB] mb-4" aria-hidden="true">
           404
         </div>
-        <h1 className="font-[family-name:var(--font-poppins)] text-2xl font-bold text-[#111827] mb-2">
+        <h1 className="font-[family-name:var(--font-sora)] text-2xl font-bold text-[#111827] mb-2">
           Page Not Found
         </h1>
         <p className="text-[#6B7280] mb-8">

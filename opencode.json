@@ -5,11 +5,47 @@
       "npm": "@ai-sdk/openai-compatible",
       "options": {
         "baseURL": "http://127.0.0.1:20128/v1",
-        "apiKey": "sk_9router"
+        "apiKey": "sk-dfa7c678352b01f2-746dlo-ff930955"
       },
       "models": {
-        "asdasd/claude-sonnet-4.6": {
-          "name": "asdasd/claude-sonnet-4.6",
+        "klm/claude-sonnet-4.6": {
+          "name": "klm/claude-sonnet-4.6",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "klm/glm-5.2": {
+          "name": "klm/glm-5.2",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "klm/glm-5.2-free": {
+          "name": "klm/glm-5.2-free",
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          }
+        },
+        "klm/claude-sonnet-4.5": {
+          "name": "klm/claude-sonnet-4.5",
           "modalities": {
             "input": [
               "text",
@@ -23,7 +59,7 @@
       }
     }
   },
-  "model": "9router/asdasd/claude-sonnet-4.6",
+  "model": "9router/klm/claude-sonnet-4.6",
   "agent": {
     "explorer": {
       "description": "Fast explorer subagent for codebase exploration",
