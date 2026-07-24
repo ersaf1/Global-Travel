@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
@@ -27,10 +27,10 @@ const MapClient = dynamic(
 );
 
 const transportModes: { mode: TransportMode; emoji: string; label: string }[] = [
-  { mode: "FLIGHT",     emoji: "✈️", label: "Flight"     },
-  { mode: "TRAIN",      emoji: "🚆", label: "Train"      },
-  { mode: "CAR",        emoji: "🚗", label: "Car"        },
-  { mode: "MOTORCYCLE", emoji: "🏍", label: "Motorcycle" },
+  { mode: "FLIGHT",     emoji: "  ", label: "Flight"     },
+  { mode: "TRAIN",      emoji: "  ", label: "Train"      },
+  { mode: "CAR",        emoji: "  ", label: "Car"        },
+  { mode: "MOTORCYCLE", emoji: "  ", label: "Motorcycle" },
 ];
 
 interface PlaceOption {
@@ -294,7 +294,7 @@ export function PlannerClient() {
                     <Users size={15} className="text-[#9CA3AF]" aria-hidden="true" />
                     <button type="button" onClick={() => setTravelers(Math.max(1, travelers - 1))}
                       className="w-6 h-6 rounded-md bg-white border border-[#E5E7EB] text-sm flex items-center justify-center hover:bg-[#F3F4F6]"
-                      aria-label="Decrease travelers">−
+                      aria-label="Decrease travelers"> 
                     </button>
                     <span className="flex-1 text-center text-sm font-medium text-[#111827]" aria-live="polite">
                       {travelers} {travelers === 1 ? "person" : "people"}
@@ -420,7 +420,7 @@ export function PlannerClient() {
                 </div>
                 <p className="text-sm font-medium text-[#374151]">Search for a route</p>
                 <p className="text-xs text-[#9CA3AF] mt-1">
-                  Type any city or place name — powered by OpenStreetMap
+                  Type any city or place name   powered by OpenStreetMap
                 </p>
               </div>
             )}

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -211,7 +211,7 @@ export function AdminDashboardClient() {
                           <td className="px-4 py-3 font-medium text-[#111827]">{row.name}</td>
                           <td className="px-4 py-3 text-[#6B7280]">{row.country}</td>
                           <td className="px-4 py-3"><Badge variant="blue">{row.category}</Badge></td>
-                          <td className="px-4 py-3 text-[#111827]">⭐ {row.rating}</td>
+                          <td className="px-4 py-3 text-[#111827]">  {row.rating}</td>
                           <td className="px-4 py-3 text-[#111827]">{row.price}</td>
                           <td className="px-4 py-3"><Badge variant="green">{row.status}</Badge></td>
                           <td className="px-4 py-3">

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -55,7 +55,7 @@ export function VideoBanner() {
                 Watch Our Story
               </p>
               <p className="mt-2" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-nunito)", fontSize: "15px" }}>
-                2 min · How NOVA was born from a love of exploration
+                2 min   How NOVA was born from a love of exploration
               </p>
             </div>
           </div>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -23,10 +23,10 @@ const bookingSchema = z.object({
 type BookingFormValues = z.infer<typeof bookingSchema>;
 
 const transportModes: { mode: TransportMode; icon: React.ReactNode; label: string; emoji: string }[] = [
-  { mode: "FLIGHT", icon: <Plane size={18} />, label: "Flight", emoji: "✈️" },
-  { mode: "TRAIN", icon: <Train size={18} />, label: "Train", emoji: "🚆" },
-  { mode: "CAR", icon: <Car size={18} />, label: "Car", emoji: "🚗" },
-  { mode: "MOTORCYCLE", icon: <Bike size={18} />, label: "Motorcycle", emoji: "🏍" },
+  { mode: "FLIGHT", icon: <Plane size={18} />, label: "Flight", emoji: "  " },
+  { mode: "TRAIN", icon: <Train size={18} />, label: "Train", emoji: "  " },
+  { mode: "CAR", icon: <Car size={18} />, label: "Car", emoji: "  " },
+  { mode: "MOTORCYCLE", icon: <Bike size={18} />, label: "Motorcycle", emoji: "  " },
 ];
 
 const steps = ["Trip Details", "Transport", "Payment", "Confirm"];
@@ -102,7 +102,7 @@ export function BookingClient() {
                   )}
                   aria-current={i === step ? "step" : undefined}
                 >
-                  {i < step ? "✓" : i + 1}
+                  {i < step ? " " : i + 1}
                 </div>
                 <span className="text-xs text-[#6B7280] hidden sm:block whitespace-nowrap">{s}</span>
               </div>
@@ -114,7 +114,7 @@ export function BookingClient() {
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          {/* Step 0 — Trip Details */}
+          {/* Step 0   Trip Details */}
           {step === 0 && (
             <motion.div initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3 }}>
               <Card padding="lg" className="space-y-4">
@@ -169,7 +169,7 @@ export function BookingClient() {
             </motion.div>
           )}
 
-          {/* Step 1 — Transport */}
+          {/* Step 1   Transport */}
           {step === 1 && (
             <motion.div initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3 }}>
               <Card padding="lg">
@@ -199,7 +199,7 @@ export function BookingClient() {
             </motion.div>
           )}
 
-          {/* Step 2 — Payment */}
+          {/* Step 2   Payment */}
           {step === 2 && (
             <motion.div initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3 }}>
               <Card padding="lg" className="space-y-4">
@@ -213,13 +213,13 @@ export function BookingClient() {
                   <Input label="CVV" placeholder="123" type="password" />
                 </div>
                 <p className="text-xs text-[#9CA3AF] flex items-center gap-1">
-                  🔒 Your payment info is encrypted and secure.
+                     Your payment info is encrypted and secure.
                 </p>
               </Card>
             </motion.div>
           )}
 
-          {/* Step 3 — Confirm */}
+          {/* Step 3   Confirm */}
           {step === 3 && (
             <motion.div initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3 }}>
               <Card padding="lg">
@@ -228,8 +228,8 @@ export function BookingClient() {
                 </h2>
                 <div className="space-y-3 mb-6">
                   {[
-                    { label: "Destination", value: watch("destinationId") || "—" },
-                    { label: "Departure", value: watch("departureDate") || "—" },
+                    { label: "Destination", value: watch("destinationId") || " " },
+                    { label: "Departure", value: watch("departureDate") || " " },
                     { label: "Return", value: watch("returnDate") || "One-way" },
                     { label: "Travelers", value: `${watch("travelers")} person(s)` },
                     { label: "Transport", value: transport },

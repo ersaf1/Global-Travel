@@ -1,43 +1,64 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────────────────
-   NOVA Design Tokens
+   NOVA Design System — globals.css
    Reference: "Condé Nast Traveler meets Airbnb warmth"
    Strategy: Committed deep-sky blue drench
    Voice: cinematic · boundless · unhurried
 ───────────────────────────────────────────────────────── */
+
 :root {
-  /* Sky blue — committed brand color */
-  --nova:         #1E8EE8;   /* primary sky blue */
-  --nova-deep:    #0E6CBD;   /* darker for hover/text */
-  --nova-light:   #EBF5FD;   /* tinted surface */
-  --nova-pale:    #F4F9FE;   /* barely-there tint */
-  --nova-drench:  #0A4A82;   /* deep navy drench */
+  /* Brand accent */
+  --accent:       #1E8EE8;
+  --accent-dim:   rgba(30,142,232,0.15);
+  --accent-glow:  0 0 40px rgba(30,142,232,0.35);
+  --gold:         #F5A623;
+  --gold-dim:     rgba(245,166,35,0.12);
 
-  /* Surfaces */
+  /* Surfaces — dark navy progression */
+  --surface-0:    #050F1C;
+  --surface-1:    #0A1628;
+  --surface-2:    #0F1E35;
+  --surface-3:    #162540;
+  --surface-4:    #1E2F4D;
+
+  /* Existing tokens — preserved */
+  --nova:         #FFFFFF;
+  --nova-deep:    #D0D0D0;
+  --nova-light:   #1A2535;
+  --nova-pale:    #131C2B;
+  --nova-drench:  #0A1628;
+
   --bg:           #FFFFFF;
-  --bg-warm:      #FAFCFF;   /* warm white */
-  --bg-tint:      #EBF5FD;   /* light sky tint */
-  --bg-dark:      #071E35;   /* near-black navy */
+  --bg-warm:      #FAFCFF;
+  --bg-tint:      #EBF5FD;
+  --bg-dark:      #071E35;
 
-  /* Text */
-  --text:         #0A1628;   /* deep navy text */
-  --text-2:       #3A5068;   /* secondary */
-  --text-3:       #7A9AB5;   /* muted */
-  --text-inv:     #FFFFFF;
+  --text:         #0A1628;
+  --text-2:       #3A5068;
+  --text-3:       #7A9AB5;
+  --text-inv:     #F0F6FF;
+  --text-inv2:    rgba(240,246,255,0.55);
+  --text-inv3:    rgba(240,246,255,0.30);
 
-  /* Border */
   --line:         #D0E8F8;
   --line-strong:  #A8D0EE;
+  --line-dim:     rgba(255,255,255,0.07);
+  --line-bright:  rgba(255,255,255,0.14);
 
-  /* Type */
-  --font-head:    var(--font-sora, "Sora", system-ui, sans-serif);
-  --font-body:    var(--font-nunito, "Nunito Sans", system-ui, sans-serif);
-  --font-poppins: var(--font-sora, "Sora", system-ui, sans-serif); /* legacy alias */
+  /* Font tokens */
+  --font-head:    var(--font-jakarta, "Plus Jakarta Sans", system-ui, sans-serif);
+  --font-body:    var(--font-dm, "DM Sans", system-ui, sans-serif);
+  --font-sora:    var(--font-jakarta, "Plus Jakarta Sans", system-ui, sans-serif);
+  --font-nunito:  var(--font-dm, "DM Sans", system-ui, sans-serif);
+  --font-poppins: var(--font-jakarta, "Plus Jakarta Sans", system-ui, sans-serif);
+
+  /* Glow */
+  --glow-nova:    0 0 32px rgba(255,255,255,0.12), 0 0 64px rgba(255,255,255,0.05);
 
   /* Spacing rhythm */
-  --sec:  clamp(5rem, 10vw, 9rem);   /* section vertical padding */
-  --wrap: min(1280px, 100% - 3rem);  /* max-width + auto margins */
+  --sec:  clamp(5rem, 10vw, 9rem);
+  --wrap: min(1280px, 100% - 3rem);
 
   /* Shadows — blue-tinted */
   --sh-sm:  0 2px 12px rgba(14,108,189,0.10);
@@ -45,142 +66,223 @@
   --sh-lg:  0 16px 56px rgba(14,108,189,0.16);
   --sh-xl:  0 32px 80px rgba(14,108,189,0.20);
 
-  /* Radius */
+  /* Border radii */
   --r-sm: 6px;
   --r-md: 14px;
   --r-lg: 22px;
   --r-xl: 32px;
+
+  /* Z-index scale */
+  --z-dropdown:        100;
+  --z-sticky:          200;
+  --z-navbar:          300;
+  --z-modal-backdrop:  400;
+  --z-modal:           500;
+  --z-toast:           600;
+  --z-tooltip:         700;
+  --z-cursor:          9999;
 }
 
+/* ─── Tailwind v4 theme mapping ───────────────────────── */
 @theme inline {
-  --color-nova:        var(--nova);
-  --color-nova-deep:   var(--nova-deep);
-  --color-nova-light:  var(--nova-light);
-  --color-nova-pale:   var(--nova-pale);
-  --color-nova-drench: var(--nova-drench);
-  --color-bg:          var(--bg);
-  --color-bg-warm:     var(--bg-warm);
-  --color-bg-tint:     var(--bg-tint);
-  --color-bg-dark:     var(--bg-dark);
-  --color-text:        var(--text);
-  --color-text-2:      var(--text-2);
-  --color-text-3:      var(--text-3);
-  --color-line:        var(--line);
-  --font-sans:         var(--font-body);
-  --font-head:         var(--font-head);
+  --color-accent:       var(--accent);
+  --color-gold:         var(--gold);
+  --color-surface-0:    var(--surface-0);
+  --color-surface-1:    var(--surface-1);
+  --color-surface-2:    var(--surface-2);
+  --color-surface-3:    var(--surface-3);
+  --color-surface-4:    var(--surface-4);
+  --color-nova:         var(--nova);
+  --color-nova-deep:    var(--nova-deep);
+  --color-nova-light:   var(--nova-light);
+  --color-nova-pale:    var(--nova-pale);
+  --color-nova-drench:  var(--nova-drench);
+  --color-bg:           var(--bg);
+  --color-bg-warm:      var(--bg-warm);
+  --color-bg-tint:      var(--bg-tint);
+  --color-bg-dark:      var(--bg-dark);
+  --font-head:          var(--font-head);
+  --font-body:          var(--font-body);
 }
 
-/* ── Reset ──────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; }
-
+/* ─── Base reset & global styles ─────────────────────── */
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
   font-family: var(--font-body);
-  line-height: 1.65;
-  font-weight: 400;
-  font-size: 16px;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100dvh;
 }
 
-/* ── Type ───────────────────────────────────────────── */
-h1, h2, h3 {
+/* Custom cursor — suppress native when active */
+html.custom-cursor-active,
+html.custom-cursor-active * {
+  cursor: none !important;
+}
+
+/* Selection */
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* Focus visible */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface-1);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0a6bb5;
+}
+
+/* ─── Glass utilities ─────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--r-md);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--r-md);
+}
+
+.glass-nav {
+  background: rgba(5, 15, 28, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-card {
+  background: rgba(10, 22, 40, 0.70);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--r-md);
+}
+
+/* ─── Typography scale ────────────────────────────────── */
+.text-display {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
   font-family: var(--font-head);
+}
+
+.text-hero {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-family: var(--font-head);
+}
+
+.text-section {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 700;
   line-height: 1.1;
-  color: var(--text);
   letter-spacing: -0.02em;
-}
-
-h4, h5, h6 {
   font-family: var(--font-head);
-  font-weight: 600;
-  line-height: 1.3;
-  color: var(--text);
 }
 
-/* ── Scrollbar ──────────────────────────────────────── */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: var(--nova-pale); }
-::-webkit-scrollbar-thumb { background: var(--nova); border-radius: 99px; }
-
-/* ── Focus ──────────────────────────────────────────── */
-:focus-visible {
-  outline: 2px solid var(--nova);
-  outline-offset: 3px;
-  border-radius: var(--r-sm);
+.text-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: var(--font-head);
 }
 
-/* ── Selection ──────────────────────────────────────── */
-::selection {
-  background: rgba(30,142,232,0.18);
-  color: var(--text);
+/* ─── Button classes ──────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 52px;
+  padding: 0 2rem;
+  background: linear-gradient(135deg, #1E8EE8, #0A6BB5);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  border-radius: var(--r-md);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(30, 142, 232, 0.40);
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: var(--font-head);
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(30, 142, 232, 0.55);
+}
+.btn-primary:active {
+  transform: translateY(0);
 }
 
-/* ── Utility ────────────────────────────────────────── */
-.hide-scrollbar::-webkit-scrollbar { display: none; }
-.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-.img-fill {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 52px;
+  padding: 0 2rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  border-radius: var(--r-md);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  font-family: var(--font-head);
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.40);
+}
+.btn-secondary:active {
+  transform: translateY(0);
 }
 
-/* ── Glass family ───────────────────────────────────── */
-.glass {
-  background: rgba(255,255,255,0.13);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-  border: 1px solid rgba(255,255,255,0.20);
-}
-.glass-md {
-  background: rgba(255,255,255,0.22);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-  border: 1px solid rgba(255,255,255,0.30);
-}
-.glass-strong {
-  background: rgba(255,255,255,0.34);
-  backdrop-filter: blur(36px);
-  -webkit-backdrop-filter: blur(36px);
-  border: 1px solid rgba(255,255,255,0.42);
-}
-.glass-sky {
-  background: rgba(235,245,253,0.72);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-  border: 1px solid rgba(30,142,232,0.18);
-}
-.glass-blue {
-  background: rgba(30,142,232,0.14);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-  border: 1px solid rgba(30,142,232,0.24);
-}
-.glass-dark {
-  background: rgba(7,30,53,0.58);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-  border: 1px solid rgba(255,255,255,0.09);
-}
-.glass-nav {
-  background: rgba(7,30,53,0.78);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
-  border-bottom: 1px solid rgba(30,142,232,0.18);
-}
-
-/* ── Nova button ────────────────────────────────────── */
 .btn-nova {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 0.5rem;
   height: 48px;
   padding: 0 1.75rem;
@@ -195,13 +297,18 @@ h4, h5, h6 {
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
   box-shadow: var(--sh-sm);
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
 }
 .btn-nova:hover {
   background: var(--nova-deep);
   box-shadow: var(--sh-md);
   transform: translateY(-1px);
 }
-.btn-nova:active { transform: translateY(0); }
+.btn-nova:active {
+  transform: translateY(0);
+}
 
 .btn-ghost {
   display: inline-flex;
@@ -215,12 +322,148 @@ h4, h5, h6 {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  border: 2px solid var(--nova);
+  border: 2px solid rgba(255, 255, 255, 0.30);
   border-radius: var(--r-md);
   cursor: pointer;
   transition: all 0.2s;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
 }
 .btn-ghost:hover {
-  background: var(--nova);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.60);
+  color: #ffffff;
+}
+.btn-ghost:active {
+  transform: translateY(0);
+}
+
+/* ─── Keyframe animations ─────────────────────────────── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: 0.8; }
+  100% { transform: scale(1.5); opacity: 0;   }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes typing-blink {
+  0%   { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ─── Animation utility classes ──────────────────────── */
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out both;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.35s ease-out both;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+.animate-typing-blink {
+  animation: typing-blink 1.1s ease-in-out infinite;
+}
+
+/* ─── Skeleton loading ────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface-2) 25%,
+    var(--surface-3) 50%,
+    var(--surface-2) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+  border-radius: var(--r-sm);
+}
+
+/* ─── Scroll reveal utility ───────────────────────────── */
+.section-fade {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.section-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Reduced motion ──────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

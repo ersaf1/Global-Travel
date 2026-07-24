@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -6,42 +6,42 @@ import { ArrowUpRight } from "lucide-react";
 
 const countries = [
   {
-    name: "Japan",     code: "JP", flag: "🇯🇵", count: 124,
+    name: "Japan",     code: "JP", flag: "    ", count: 124,
     image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=90",
     desc: "Ancient temples, neon cities, and cherry blossoms.",
   },
   {
-    name: "France",    code: "FR", flag: "🇫🇷", count: 98,
+    name: "France",    code: "FR", flag: "    ", count: 98,
     image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=90",
     desc: "Romantic boulevards, world-class cuisine, and art.",
   },
   {
-    name: "Indonesia", code: "ID", flag: "🇮🇩", count: 156,
+    name: "Indonesia", code: "ID", flag: "    ", count: 156,
     image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=90",
     desc: "Tropical islands, rice paddies, and vibrant culture.",
   },
   {
-    name: "Italy",     code: "IT", flag: "🇮🇹", count: 112,
+    name: "Italy",     code: "IT", flag: "    ", count: 112,
     image: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=90",
     desc: "Renaissance art, coastal cliffs, and timeless food.",
   },
   {
-    name: "Thailand",  code: "TH", flag: "🇹🇭", count: 89,
+    name: "Thailand",  code: "TH", flag: "    ", count: 89,
     image: "https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?w=800&q=90",
     desc: "White-sand beaches, Buddhist temples, street food.",
   },
   {
-    name: "Australia", code: "AU", flag: "🇦🇺", count: 78,
+    name: "Australia", code: "AU", flag: "    ", count: 78,
     image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800&q=90",
     desc: "Dramatic outback, coral reefs, and iconic harbours.",
   },
   {
-    name: "Brazil",    code: "BR", flag: "🇧🇷", count: 67,
+    name: "Brazil",    code: "BR", flag: "    ", count: 67,
     image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=800&q=90",
     desc: "Amazon rainforest, Carnival, and golden beaches.",
   },
   {
-    name: "Morocco",   code: "MA", flag: "🇲🇦", count: 45,
+    name: "Morocco",   code: "MA", flag: "    ", count: 45,
     image: "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800&q=90",
     desc: "Medinas, sahara dunes, and spice-filled souks.",
   },
@@ -87,9 +87,9 @@ export function TrendingCountries() {
                 aspectRatio: "3/4",
                 display: "block",
               }}
-              aria-label={`${name} — ${count} destinations`}
+              aria-label={`${name}   ${count} destinations`}
             >
-              {/* Background photo — hidden by default, revealed on hover */}
+              {/* Background photo   hidden by default, revealed on hover */}
               <div
                 className="absolute inset-0 transition-opacity duration-500 ease-out opacity-0 group-hover:opacity-100"
                 style={{ zIndex: 0 }}
@@ -106,7 +106,7 @@ export function TrendingCountries() {
                   style={{ background: "linear-gradient(to top, rgba(7,20,45,0.90) 0%, rgba(7,20,45,0.30) 60%, transparent 100%)" }} />
               </div>
 
-              {/* Default state — white card */}
+              {/* Default state   white card */}
               <div
                 className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-3 transition-opacity duration-300 group-hover:opacity-0"
                 style={{ zIndex: 1 }}
@@ -127,7 +127,7 @@ export function TrendingCountries() {
                 </p>
               </div>
 
-              {/* Hover state — photo + info */}
+              {/* Hover state   photo + info */}
               <div
                 className="absolute inset-0 flex flex-col justify-end p-3.5 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0"
                 style={{ zIndex: 2 }}
@@ -142,7 +142,7 @@ export function TrendingCountries() {
                   {desc}
                 </p>
                 <p className="font-semibold" style={{ fontSize: "10px", color: "rgba(120,200,255,0.85)", fontFamily: "var(--font-sora)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                  {count} places →
+                  {count} places  
                 </p>
               </div>
             </motion.a>

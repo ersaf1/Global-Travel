@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useEffect } from "react";
 import Image from "next/image";
@@ -67,7 +67,7 @@ export function DestinationCarousel() {
         </div>
       </div>
 
-      {/* Scrollable track — edge-to-edge */}
+      {/* Scrollable track   edge-to-edge */}
       <div ref={scrollRef} className="flex gap-4 overflow-x-auto hide-scrollbar"
         style={{ paddingLeft: "max(1.5rem, calc((100vw - 1280px) / 2))", paddingRight: "max(1.5rem, calc((100vw - 1280px) / 2))" }}
         role="list">

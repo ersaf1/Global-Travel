@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
@@ -83,7 +83,7 @@ export function ExploreMore() {
           ))}
         </div>
 
-        {/* Grid — tall cards, 70% photo */}
+        {/* Grid   tall cards, 70% photo */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           <AnimatePresence mode="popLayout">
             {filtered.map(d => (

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useEffect } from "react";
 import { Globe2, Map, Zap } from "lucide-react";
@@ -8,15 +8,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
-  { icon: Globe2, number: "01", title: "Discover",  body: "Browse thousands of curated destinations worldwide — from iconic landmarks to hidden local gems." },
-  { icon: Map,    number: "02", title: "Plan",       body: "Build day-by-day itineraries with activities, hotels, and transport — all in one seamless flow." },
+  { icon: Globe2, number: "01", title: "Discover",  body: "Browse thousands of curated destinations worldwide   from iconic landmarks to hidden local gems." },
+  { icon: Map,    number: "02", title: "Plan",       body: "Build day-by-day itineraries with activities, hotels, and transport   all in one seamless flow." },
   { icon: Zap,    number: "03", title: "Book & Go",  body: "Confirm your entire trip in minutes with instant booking and 24/7 traveler support." },
 ];
 
 const stats = [
   { value: "50K+", label: "Travelers" },
   { value: "190+", label: "Countries" },
-  { value: "4.9★", label: "Rating"    },
+  { value: "4.9 ", label: "Rating"    },
   { value: "12+",  label: "Years"     },
 ];
 
@@ -47,7 +47,7 @@ export function WhyChooseUs() {
             Travel made simple.
           </h2>
           <p className="mt-4 text-lg" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "var(--font-nunito)", maxWidth: "44ch", lineHeight: 1.65 }}>
-            Everything you need to discover, plan, and book your perfect trip — beautifully.
+            Everything you need to discover, plan, and book your perfect trip   beautifully.
           </p>
         </div>
 

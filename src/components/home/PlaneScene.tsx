@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 import { useSpring, useTransform, motion } from "framer-motion";
@@ -40,7 +40,7 @@ export function PlaneScene({ mouseX, mouseY }: PlaneSceneProps) {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // ── Plane floating ──
+      //    Plane floating   
       if (planeRef.current) {
         gsap.to(planeRef.current, {
           y: -14,
@@ -52,7 +52,7 @@ export function PlaneScene({ mouseX, mouseY }: PlaneSceneProps) {
         });
       }
 
-      // ── Glow pulse ──
+      //    Glow pulse   
       if (glowRef.current) {
         gsap.to(glowRef.current, {
           scale: 1.15,
@@ -64,7 +64,7 @@ export function PlaneScene({ mouseX, mouseY }: PlaneSceneProps) {
         });
       }
 
-      // ── Orbit rings ──
+      //    Orbit rings   
       if (orbit1Ref.current) {
         gsap.to(orbit1Ref.current, {
           rotation: 360,
@@ -84,7 +84,7 @@ export function PlaneScene({ mouseX, mouseY }: PlaneSceneProps) {
         });
       }
 
-      // ── Clouds floating ──
+      //    Clouds floating   
       const cloudRefs = [cloud1Ref, cloud2Ref, cloud3Ref, cloud4Ref];
       const cloudDelays = [0, 1.2, 2.1, 0.7];
       cloudRefs.forEach((ref, i) => {
@@ -105,7 +105,7 @@ export function PlaneScene({ mouseX, mouseY }: PlaneSceneProps) {
         });
       });
 
-      // ── Particles floating ──
+      //    Particles floating   
       particleRefs.current.forEach((el, i) => {
         if (!el) return;
         const p = particles[i];
@@ -121,7 +121,7 @@ export function PlaneScene({ mouseX, mouseY }: PlaneSceneProps) {
         });
       });
 
-      // ── Flight path draw ──
+      //    Flight path draw   
       if (pathRef1.current) {
         const len1 = pathRef1.current.getTotalLength();
         gsap.set(pathRef1.current, {
@@ -212,7 +212,7 @@ export function PlaneScene({ mouseX, mouseY }: PlaneSceneProps) {
         </svg>
       </div>
 
-      {/* The Plane — parallax via Framer Motion spring */}
+      {/* The Plane   parallax via Framer Motion spring */}
       <motion.div
         style={{
           x: useTransform(springX, v => v * 0.04),
@@ -346,7 +346,7 @@ export function PlaneScene({ mouseX, mouseY }: PlaneSceneProps) {
         </div>
       </motion.div>
 
-      {/* Clouds — parallax via Framer Motion, animation via GSAP */}
+      {/* Clouds   parallax via Framer Motion, animation via GSAP */}
       {[
         { ref: cloud1Ref, x: -130, y: -70,  scale: 1,    factor: 0.02  },
         { ref: cloud2Ref, x:  110, y:  80,  scale: 0.65, factor: 0.015 },
@@ -373,7 +373,7 @@ export function PlaneScene({ mouseX, mouseY }: PlaneSceneProps) {
         </motion.div>
       ))}
 
-      {/* Particles — parallax via Framer Motion, float via GSAP */}
+      {/* Particles   parallax via Framer Motion, float via GSAP */}
       {particles.map((p, i) => (
         <motion.div
           key={i}

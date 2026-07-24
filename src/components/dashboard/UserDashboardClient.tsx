@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -94,7 +94,7 @@ export function UserDashboardClient() {
               <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="space-y-6">
                 <div>
                   <h1 className="font-[family-name:var(--font-sora)] text-2xl font-bold text-[#111827]">
-                    Welcome back, John 👋
+                    Welcome back, John   
                   </h1>
                   <p className="text-[#6B7280] mt-1">Here's what's happening with your trips.</p>
                 </div>
@@ -129,7 +129,7 @@ export function UserDashboardClient() {
                           </div>
                           <div>
                             <p className="text-sm font-medium text-[#111827]">{b.destination}</p>
-                            <p className="text-xs text-[#9CA3AF]">{formatDateShort(b.date)} · {b.transport}</p>
+                            <p className="text-xs text-[#9CA3AF]">{formatDateShort(b.date)}   {b.transport}</p>
                           </div>
                         </div>
                         <Badge variant={statusConfig[b.status].variant}>{statusConfig[b.status].label}</Badge>
@@ -149,11 +149,11 @@ export function UserDashboardClient() {
                     <Card key={b.id} padding="md" className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 bg-[#F3F4F6] rounded-xl flex items-center justify-center text-xl" aria-hidden="true">
-                          {b.transport === "FLIGHT" ? "✈️" : b.transport === "TRAIN" ? "🚆" : "🚗"}
+                          {b.transport === "FLIGHT" ? "  " : b.transport === "TRAIN" ? "  " : "  "}
                         </div>
                         <div>
                           <p className="font-semibold text-[#111827]">{b.destination}</p>
-                          <p className="text-sm text-[#9CA3AF]">{formatDateShort(b.date)} · {b.transport}</p>
+                          <p className="text-sm text-[#9CA3AF]">{formatDateShort(b.date)}   {b.transport}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-3">
@@ -180,7 +180,7 @@ export function UserDashboardClient() {
                         <p className="font-semibold text-[#111827]">{s.name}</p>
                         <p className="text-xs text-[#9CA3AF]">{s.country}</p>
                         <div className="flex items-center justify-between mt-2">
-                          <span className="text-xs font-medium text-[#111827]">⭐ {s.rating}</span>
+                          <span className="text-xs font-medium text-[#111827]">  {s.rating}</span>
                           <Button size="sm" variant="outline" onClick={() => { window.location.href = `/destinations/${s.name.toLowerCase()}`; }}>
                                             View
                                           </Button>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useEffect } from "react";
 import Image from "next/image";
@@ -49,11 +49,11 @@ export function PopularDestinations() {
           </a>
         </div>
 
-        {/* Asymmetric grid — 70% photo */}
+        {/* Asymmetric grid   70% photo */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4"
           style={{ gridTemplateRows: "auto" }}>
 
-          {/* Large featured — 7 cols, full height */}
+          {/* Large featured   7 cols, full height */}
           <div data-pop className="lg:col-span-7 relative overflow-hidden group cursor-pointer"
             style={{ minHeight: "600px", position: "relative", borderRadius: "var(--r-lg)", boxShadow: "var(--sh-lg)" }}>
             <a href={`/destinations/${destinations[0].slug}`} className="absolute inset-0 w-full h-full block"
@@ -81,7 +81,7 @@ export function PopularDestinations() {
             </a>
           </div>
 
-          {/* 3 right cards stacked — 5 cols */}
+          {/* 3 right cards stacked   5 cols */}
           <div className="lg:col-span-5 flex flex-col gap-4">
             {destinations.slice(1).map((d) => (
               <div key={d.id} data-pop className="relative overflow-hidden group cursor-pointer flex-1"

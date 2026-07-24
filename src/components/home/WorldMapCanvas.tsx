@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -41,7 +41,7 @@ export function WorldMapCanvas({ mouseX = 0, mouseY = 0 }: WorldMapCanvasProps) 
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // ── Draw route lines ──
+      //    Draw route lines   
       routeRefs.current.forEach((el, i) => {
         if (!el) return;
         const len = el.getTotalLength();
@@ -55,7 +55,7 @@ export function WorldMapCanvas({ mouseX = 0, mouseY = 0 }: WorldMapCanvasProps) 
         });
       });
 
-      // ── Animate city pins in ──
+      //    Animate city pins in   
       pinRefs.current.forEach((el, i) => {
         if (!el) return;
         gsap.set(el, { scale: 0, opacity: 0, transformOrigin: `${cities[i].x}px ${cities[i].y}px` });
@@ -68,7 +68,7 @@ export function WorldMapCanvas({ mouseX = 0, mouseY = 0 }: WorldMapCanvasProps) 
         });
       });
 
-      // ── Pulse rings ──
+      //    Pulse rings   
       pulseRefs.current.forEach((el, i) => {
         if (!el) return;
         const city = cities[i];
@@ -84,7 +84,7 @@ export function WorldMapCanvas({ mouseX = 0, mouseY = 0 }: WorldMapCanvasProps) 
         });
       });
 
-      // ── Traveling dots along routes ──
+      //    Traveling dots along routes   
       travelerRefs.current.forEach((el, i) => {
         if (!i || i >= 4) return; // only first 4 routes
         if (!el) return;

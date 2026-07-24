@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 
@@ -27,7 +27,7 @@ export function MapClient({
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
 
-    // Dynamic import — Leaflet needs browser env
+    // Dynamic import   Leaflet needs browser env
     Promise.all([
       import("leaflet"),
       import("leaflet/dist/leaflet.css" as any),
@@ -50,11 +50,11 @@ export function MapClient({
 
       const mtKey = process.env.NEXT_PUBLIC_MAPTILER_KEY;
       if (mtKey) {
-        // MapTiler Streets — clean, modern, premium look
+        // MapTiler Streets   clean, modern, premium look
         L.tileLayer(
           `https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${mtKey}`,
           {
-            attribution: '© <a href="https://www.maptiler.com/">MapTiler</a> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            attribution: '  <a href="https://www.maptiler.com/">MapTiler</a>   <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
             maxZoom: 20,
             tileSize: 256,
           }
@@ -62,7 +62,7 @@ export function MapClient({
       } else {
         // Fallback to OSM
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          attribution: '  <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
           maxZoom: 19,
         }).addTo(map);
       }
